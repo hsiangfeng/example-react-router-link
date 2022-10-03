@@ -1,11 +1,12 @@
-import React from 'react'
-import { HashRouter, NavLink, Routes, Route } from "react-router-dom";
+import { StrictMode, Suspense } from 'react'
+import { HashRouter, NavLink } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import Router from './routes'
+import Loading from './components/Loading';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <StrictMode>
     <HashRouter>
       <nav className="px-5 flex items-center h-[60px] bg-indigo-500 text-white">
         <h1 className="mr-auto text-2xl">React TodoList</h1>
@@ -22,7 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </li>
           <li className="mr-3">
             <NavLink to="/todolist"
-            activeClassName="router-link-active"
             className={({ isActive }) => 
               [
                 'border p-3 hover:bg-indigo-600 duration-500',
@@ -53,7 +53,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </li>
         </ul>
       </nav>
-      <Router />
+      <Suspense fallback={ <Loading/> }>
+        <Router />
+      </Suspense>
     </HashRouter>
-  </React.StrictMode>
+  </StrictMode>
 )

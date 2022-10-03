@@ -1,9 +1,9 @@
+import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
-
-import App from '../App';
-import ToDoList from '../ToDoList';
-import Products from '../Products';
-import Admin from '../Admin';
+const App = lazy(() => import('../App'));
+const ToDoList = lazy(() => import('../ToDoList'));
+const Products = lazy(() => import('../Products'));
+const Admin = lazy(() => import('../Admin'));
 
 const routes = [
   {
