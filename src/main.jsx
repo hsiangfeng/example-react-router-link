@@ -1,10 +1,7 @@
 import React from 'react'
 import { HashRouter, NavLink, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import ToDoList from './ToDoList'
-import Products from './Products'
-import Admin from './Admin'
+import Router from './routes'
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -56,12 +53,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={ <App /> } />
-        <Route path="/todolist" element={ <ToDoList /> } />
-        <Route path="/products" element={ <Products /> } />
-        <Route path="/admin" element={ <Admin /> } />
-      </Routes>
+      <Router />
     </HashRouter>
   </React.StrictMode>
 )
